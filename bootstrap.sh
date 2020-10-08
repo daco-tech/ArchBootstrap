@@ -1,5 +1,5 @@
 #!/bin/bash
-./misc.sh
+source "./misc.sh"
 
 timedatectl set-ntp true
 
