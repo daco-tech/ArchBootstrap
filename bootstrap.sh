@@ -35,8 +35,9 @@ pacman -Syyu
 
 # Install Essential Packages
 printinfo "Running pacstrap on the root mount"
-pacstrap /mnt base linux linux-firmware
+pacstrap /mnt base linux linux-firmware --noconfirm
 
-
-
-
+# Generate fstab
+printinfo "Generate fstab"
+genfstab -U /mnt >> /mnt/etc/fstab
+#genfstab -U /mnt/efi >> /mnt/etc/fstab
