@@ -5,6 +5,8 @@ timedatectl set-ntp true
 
 # Partitioning
 printinfo "Partitioning Arch Linux"
+
+yesno "Possible Data Loss! Do you want to continue?"
 pacman -S --noconfirm dialog
 
 devicelist=$(lsblk -dplnx size -o name,size | grep -Ev "boot|rpmb|loop" | tac)
