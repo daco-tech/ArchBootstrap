@@ -1,7 +1,10 @@
+#!/bin/bash
+./misc.sh
+
 timedatectl set-ntp true
 
 # Partitioning
-echo "Partitioning Arch Linux"
+printinfo "Partitioning Arch Linux"
 pacman -S --noconfirm dialog
 
 devicelist=$(lsblk -dplnx size -o name,size | grep -Ev "boot|rpmb|loop" | tac)
