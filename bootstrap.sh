@@ -2,6 +2,7 @@ timedatectl set-ntp true
 
 # Partitioning
 echo "Partitioning Arch Linux"
+pacman -S --noconfirm dialog
 
 devicelist=$(lsblk -dplnx size -o name,size | grep -Ev "boot|rpmb|loop" | tac)
 device=$(dialog --stdout --menu "Select installation disk" 0 0 0 ${devicelist}) || exit 1
