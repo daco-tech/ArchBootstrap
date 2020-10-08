@@ -22,3 +22,6 @@ mkswap "${device}2"
 # Mount Root Partition
 printinfo "Mount Root Partition ${device}3"
 mount "${device}3" /mnt
+swapon "${device}2"
+mount "${device}1" /mnt/efi
+
