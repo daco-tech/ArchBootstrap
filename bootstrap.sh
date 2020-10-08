@@ -16,4 +16,9 @@ parted --script "${device}" -- mklabel gpt \
   set 1 boot on \
   mkpart primary linux-swap 129MiB 2177MiB \
   mkpart primary ext4 2177MiB 100%
+mkfs.ext4 "${device}3"
+mkswap "${device}2"
 
+# Mount Root Partition
+printinfo "Mount Root Partition ${device}3"
+mount "${device}3" /mnt
