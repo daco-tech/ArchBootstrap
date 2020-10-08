@@ -50,7 +50,7 @@ _ends_at=$((${_ends_at} + 384)) # 384MiB boot partition
 parted /dev/sda mkpart primary "${_starts_at}MiB" "${_ends_at}MiB" && sleep 1
 
 _starts_at=${_ends_at}
-_ends_at=$((${_ends_at} + 5 * 1024)) # 5GiB root partition
+_ends_at=$((${_ends_at} + 10 * 1024)) # 10GiB root partition
 parted /dev/sda mkpart primary "${_starts_at}MiB" "${_ends_at}MiB" && sleep 1
 
 _starts_at=${_ends_at} # All remaining space as a data partition (vol1)
