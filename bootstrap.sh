@@ -1,46 +1,13 @@
-# Examples
-# short:    $ bash bootstrap.sh -h helium -u fcpm
-# extended: $ bash bootstrap.sh --host helium --user fcpm
+timedatectl set-ntp true
 
-script_path="$(cd "$(dirname "${BASH_SOURCE[0]}")" >/dev/null 2>&1 && pwd)"
-source "${script_path}/misc.sh"
+# Partitioning
+echo "Partitioning Arch Linux"
 
-pushd "$script_path" > /dev/null
+devicelist=$(lsblk -dplnx size -o name,size | grep -Ev "boot|rpmb|loop" | tac)
+device=$(dialog --stdout --menu "Select installation disk" 0 0 0 ${devicelist}) || exit 1
+parted --script "${device}" -- mklabel gpt \
+  mkpart ESP fat32 1Mib 129MiB \
+  set 1 boot on \
+  mkpart primary linux-swap 129MiB 2177MiB \
+  mkpart primary ext4 2177MiB 100%
 
-_host=""
-_user=""
-while [[ $# -gt 0 ]]
-do
-	case "$1" in
-		-h|--host)
-			_host="$2"
-			shift
-			shift
-			;;
-		-u|--user)
-			_user="$2"
-			shift
-			shift
-			;;
-		*)
-			printwarn "Unknown option: '$1'. Will be ignored."
-			shift
-			;;
-	esac
-done
-
-[ -z "$_host" ] && printerr "Missing mandatory '--host' option." && exit 1
-[ -z "$_user" ] && printerr "Missing mandatory '--user' option." && exit 1
-
-[ ! -f "hosts/${_host}/bootstrap.sh" ] && \
-	printerr "Missing host bootstrap file at 'hosts/${_host}/bootstrap.sh'." && exit 1
-[ ! -f "users/${_user}/bootstrap.sh" ] && \
-	printerr "Missing user bootstrap file at 'users/${_user}/bootstrap.sh'." && exit 1
-
-bash "hosts/${_host}/bootstrap.sh" --host ${_host} --user ${_user}
-
-printsucc "\n"
-printsucc "The ${_host} host and the user account ${_user} were successfully configured!"
-printsucc "Turn the power off the computer, remove the installation medium."
-
-popd > /dev/null
