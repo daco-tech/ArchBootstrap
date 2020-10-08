@@ -1,0 +1,7 @@
+#define FONTFAMILY monospace
+#define FONTSIZE 13
+rofi.font: FONTFAMILY FONTSIZE
+rofi.lines: 10
+rofi.theme: .cache/wal/colors-rofi-light
+Xcursor.size: 9
+Xft.dpi: 98
