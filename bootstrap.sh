@@ -28,3 +28,15 @@ printinfo "Mount EFI Partition ${device}1"
 mkdir -p /mnt/efi
 mount "${device}1" /mnt/efi
 
+# Update Mirrors
+printinfo "Updating mirrors list"
+cp sysfiles/mirrorlist /etc/pacman.d/mirrorlist
+pacman -Syyu
+
+# Install Essential Packages
+printinfo "Running pacstrap on the root mount"
+pacstrap /mnt base linux linux-firmware
+
+
+
+
