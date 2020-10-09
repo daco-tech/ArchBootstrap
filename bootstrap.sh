@@ -106,8 +106,8 @@ _pkgs_tools=(archiso aria2 bash-completion bat bc bluez-utils cbatticon cpupower
              usleep which)
 _pkgs_dev=(autoconf automake binaryen binutils bison clang cmake ctags diffutils
            docker docker-compose edk2-ovmf gcc gcc8 gcc9 gdb git go go-tools
-           lldb m4 make ninja openssl-1.0 perf pkgconf python python-pip qemu
-           qemu-arch-extra spirv-llvm-translator spirv-headers spirv-tools
+           lldb m4 make ninja openssl-1.0 perf pkgconf python python-pip 
+           spirv-llvm-translator spirv-headers spirv-tools
            strace tokei vulkan-extra-layers vulkan-icd-loader vulkan-mesa-layers
            vulkan-tools vulkan-validation-layers wabt zig)
 _pkgs_x11=(bspwm dunst picom sxhkd xorg-server xorg-xinit xorg-xinput xorg-xprop
@@ -145,8 +145,12 @@ cp sysfiles/resolv.conf /mnt/etc/resolv.conf
 
 # ChRoot
 printinfo "Change root to /mnt"
-arch-chroot /mnt
-
+#arch-chroot /mnt
+cp -r {.} /mnt/tmp/chroot
+mount -t proc /proc /mnt/proc/
+mount --rbind /sys /mnt/sys/
+mount --rbind /dev /mnt/dev/
+chroot /mnt /usr/bin/bash /tmp/chroot/chroot.sh
 
 ###########################################################################################
 ###########################################################################################
@@ -155,7 +159,7 @@ arch-chroot /mnt
 ###########################################################################################
 
 # Quit Chroot and cleanup
-exit
+
 printinfo "Cleanup"
 umount /mnt/boot/efi
 umount /mnt/boot
