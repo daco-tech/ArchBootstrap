@@ -146,7 +146,7 @@ cp sysfiles/resolv.conf /mnt/etc/resolv.conf
 # ChRoot
 printinfo "Change root to /mnt"
 #arch-chroot /mnt
-cp -r {.} /mnt/tmp/chroot
+cp -f ./chroot.sh /mnt/tmp/chroot/chroot.sh
 mount -t proc /proc /mnt/proc/
 mount --rbind /sys /mnt/sys/
 mount --rbind /dev /mnt/dev/
