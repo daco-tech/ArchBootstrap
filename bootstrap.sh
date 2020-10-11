@@ -134,8 +134,10 @@ pacstrap -i /mnt ${_pkgs_base[*]} ${_pkgs_drivers[*]} ${_pkgs_sys[*]} \
 
 
 # Generate fstab
-printinfo "Generate fstab"
-genfstab -U /mnt >> /mnt/etc/fstab
+printinfo "Configure fstab"
+#genfstab -U /mnt >> /mnt/etc/fstab
+cp sysfiles/fstab /mnt/etc/fstab
+chmod u=r,g=r,o=r /mnt/etc/fstab
 
 # Copy config files
 printinfo "Copy configuration files"
