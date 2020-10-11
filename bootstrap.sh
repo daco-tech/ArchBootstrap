@@ -123,16 +123,6 @@ pacstrap -i /mnt ${_pkgs_base[*]} ${_pkgs_drivers[*]} ${_pkgs_sys[*]} \
 	${_pkgs_tools[*]} ${_pkgs_dev[*]}  ${_pkgs_x11[*]} ${_pkgs_fonts[*]} \
 	${_pkgs_apps[*]} --needed --noconfirm
 
-
-
-
-
-
-
-
-
-
-
 # Generate fstab
 printinfo "Configure fstab"
 #genfstab -U /mnt >> /mnt/etc/fstab
