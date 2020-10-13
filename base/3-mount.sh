@@ -1,7 +1,7 @@
 # Mount Root Partition
 printinfo "\n"
 printinfo "Mounting partitions"
-mount /dev/mapper/ /mnt && sleep 1
+mount /dev/mapper/root /mnt && sleep 1
 
 mkdir -p /mnt/boot
 mount "${device}2" /mnt/boot
