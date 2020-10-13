@@ -17,4 +17,4 @@ mv /tmp/poly-dark-master /boot/grub/themes/polydark
 grub-mkconfig -o /boot/grub/grub.cfg
 
 # Recreate InitRam
-mkinitcpio -p linux
+#mkinitcpio -p linux
