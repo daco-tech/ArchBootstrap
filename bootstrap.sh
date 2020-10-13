@@ -7,27 +7,26 @@ source "base/4-install.sh"
 source "base/5-configure.sh"
 source "base/6-bootprep.sh"
 
-# ChRoot
-printinfo "Change root to /mnt"
-#arch-chroot /mnt
-mkdir -p /mnt/tmp/chroot/
-cp -rf sysfiles/ /mnt/tmp/chroot/
-cp -f base/6.1-chroot.sh /mnt/tmp/chroot/chroot.sh
+
+
+
+
+rintinfo "\n"
+printinfo "+ ---------------------------- +"
+printinfo "| Jumping into the chroot jail |"
+printinfo "+ ---------------------------- +"
+mkdir -p /mnt/tmp/chroot
+cp sysfiles/resolv.conf /mnt/etc/resolv.conf
+cp -r {.,base/,sysfiles/} /mnt/tmp/chroot
 mount -t proc /proc /mnt/proc/
 mount --rbind /sys /mnt/sys/
 mount --rbind /dev /mnt/dev/
 sed 's#DISK_UUID#'"$(blkid -o value -s UUID /dev/sda3)"'#g' sysfiles/grub > /mnt/tmp/chroot/sysfiles/grub
-chroot /mnt /usr/bin/bash /tmp/chroot/chroot.sh
-
-###########################################################################################
-###########################################################################################
-################                    CONFIG USER SPACE                      ################
-###########################################################################################
-###########################################################################################
-
-# Quit Chroot and cleanup
-
-printinfo "Cleanup"
+chroot /mnt /usr/bin/bash /tmp/chroot/base/6.1-chroot.sh
+printinfo "\n"
+printinfo "+ --------------------- +"
+printinfo "| Unmounting partitions |"
+printinfo "+ --------------------- +"
 umount /mnt/boot/efi
 umount /mnt/boot
 sync
@@ -38,3 +37,13 @@ umount /mnt
 cryptsetup close root
 
 popd > /dev/null
+
+
+
+
+###########################################################################################
+###########################################################################################
+################                    CONFIG USER SPACE                      ################
+###########################################################################################
+###########################################################################################
+
