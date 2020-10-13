@@ -15,4 +15,4 @@
 
 # Credits:
 
-https://github.com/kalstong/bootstrap-archlinux
+https://github.com/kalstong/-archlinux
