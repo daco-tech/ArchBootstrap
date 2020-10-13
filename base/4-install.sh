@@ -28,10 +28,11 @@ _pkgs_apps=(alacritty arandr feh firefox libreoffice-still maim meld mesa-demos
             mpv nomacs obs-studio pavucontrol pcmanfm-gtk3 rofi redshift
             slock sxiv veracrypt wireshark-qt)
 
-pacman -Syy
 pacstrap -i /mnt ${_pkgs_base[*]} ${_pkgs_drivers[*]} ${_pkgs_sys[*]} --needed --noconfirm #\
 	#${_pkgs_tools[*]} ${_pkgs_dev[*]}  ${_pkgs_x11[*]} ${_pkgs_fonts[*]} \
-	#${_pkgs_apps[*]} 
+	#${_pkgs_apps[*]} ´
+
+printinfo "Generate fstab"
 
 genfstab -U /mnt >> /mnt/etc/fstab
 
