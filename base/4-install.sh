@@ -35,6 +35,4 @@ pacstrap -i /mnt ${_pkgs_base[*]} ${_pkgs_drivers[*]} ${_pkgs_sys[*]} --needed -
 printinfo "Generate fstab"
 
 genfstab -U /mnt >> /mnt/etc/fstab
-cat /mnt/etc/fstab
-sleep 40
 

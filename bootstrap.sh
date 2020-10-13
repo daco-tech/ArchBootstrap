@@ -21,6 +21,8 @@ cp -r {.,base/,sysfiles/} /mnt/tmp/chroot
 mount -t proc /proc /mnt/proc/
 mount --rbind /sys /mnt/sys/
 mount --rbind /dev /mnt/dev/
+echo ${device}
+sleep 30
 sed 's#DISK#'"${device}"'3#g' sysfiles/grub > /mnt/tmp/chroot/sysfiles/grub
 chroot /mnt /usr/bin/bash /tmp/chroot/base/6.1-chroot.sh
 printinfo "\n"
