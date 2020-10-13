@@ -11,6 +11,7 @@ source "base/6-bootprep.sh"
 printinfo "Change root to /mnt"
 #arch-chroot /mnt
 mkdir -p /mnt/tmp/chroot/
+cp -rf sysfiles/ /mnt/tmp/chroot/sysfiles/
 cp -f base/6.1-chroot.sh /mnt/tmp/chroot/chroot.sh
 mount -t proc /proc /mnt/proc/
 mount --rbind /sys /mnt/sys/
