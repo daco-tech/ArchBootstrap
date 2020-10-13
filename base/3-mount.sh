@@ -1,7 +1,7 @@
 # Mount Root Partition
 printinfo "\n"
 printinfo "Mounting partitions"
-mount /dev/mapper/cryptroot /mnt && sleep 1
+mount /dev/mapper/ /mnt && sleep 1
 
 mkdir -p /mnt/boot
 mount "${device}2" /mnt/boot

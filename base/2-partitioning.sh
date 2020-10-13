@@ -34,5 +34,5 @@ printinfo "Formatting ${device} partitions and setting up LUKS encrypted partiti
 mkfs.fat -F32 "${device}1" && sleep 1
 mkfs.f2fs -f "${device}2" && sleep 1
 cryptsetup -y -v luksFormat "${device}3" && sleep 1
-cryptsetup open "${device}3" cryptroot && sleep 1
-mkfs.f2fs -O encrypt -f /dev/mapper/cryptroot && sleep 1
+cryptsetup open "${device}3" root && sleep 1
+mkfs.f2fs -O encrypt -f /dev/mapper/root && sleep 1

@@ -35,6 +35,6 @@ umount /mnt/proc/
 umount /mnt/sys/
 umount /mnt/dev/
 umount /mnt
-cryptsetup close cryptroot
+cryptsetup close root
 
 popd > /dev/null
