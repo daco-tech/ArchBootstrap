@@ -29,9 +29,9 @@ _pkgs_apps=(alacritty arandr feh firefox libreoffice-still maim meld mesa-demos
             slock sxiv veracrypt wireshark-qt)
 
 pacman -Syy
-pacstrap -i /mnt ${_pkgs_base[*]} ${_pkgs_drivers[*]} ${_pkgs_sys[*]} \
-	${_pkgs_tools[*]} ${_pkgs_dev[*]}  ${_pkgs_x11[*]} ${_pkgs_fonts[*]} \
-	${_pkgs_apps[*]} --needed --noconfirm
+pacstrap -i /mnt ${_pkgs_base[*]} ${_pkgs_drivers[*]} ${_pkgs_sys[*]} --needed --noconfirm #\
+	#${_pkgs_tools[*]} ${_pkgs_dev[*]}  ${_pkgs_x11[*]} ${_pkgs_fonts[*]} \
+	#${_pkgs_apps[*]} 
 
 genfstab -U /mnt >> /mnt/etc/fstab
 
