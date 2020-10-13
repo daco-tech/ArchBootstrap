@@ -16,7 +16,7 @@ cp -f base/6.1-chroot.sh /mnt/tmp/chroot/chroot.sh
 mount -t proc /proc /mnt/proc/
 mount --rbind /sys /mnt/sys/
 mount --rbind /dev /mnt/dev/
-cp sysfiles/grub /mnt/tmp/chroot/sysfiles/grub
+sed 's#DISK_UUID#'"$(blkid -o value -s UUID /dev/sda3)"'#g' sysfiles/grub > /mnt/tmp/chroot/sysfiles/grub
 chroot /mnt /usr/bin/bash /tmp/chroot/chroot.sh
 
 ###########################################################################################
