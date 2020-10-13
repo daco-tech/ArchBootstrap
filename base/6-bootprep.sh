@@ -22,5 +22,9 @@ mkdir -p /mnt/usr/local/share/kbd/keymaps
 { echo "KEYMAP=pt-latin1";
   echo "KEYMAP_TOGGLE=/usr/local/share/kbd/keymaps/uncap.map";
   echo "FONT=ter-116n"; } > /mnt/etc/vconsole.conf
-
-sed -i 's#DISK_UUID#'"$(blkid -o value -s UUID ${device}3)"'#g' sysfiles/grub
+rm -rf ./grub
+cp sysfiles/grub ./grub
+echo ${device}
+sed -i 's#DISK_UUID#'"$(blkid -o value -s UUID ${device}3)"'#g' ./grub
+cp ./grub /mnt/tmp/chroot/sysfiles/grub
+blkid -o value -s UUID ${device}3
