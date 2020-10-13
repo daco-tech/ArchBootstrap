@@ -1,8 +1,6 @@
 
 
 # Configure Grub Boot
-printinfo "\n"
-printinfo "Installing and configuring GRUB"
 grub-install --target=x86_64-efi --efi-directory="/boot/efi" --bootloader-id=arch_grub --recheck && sync
 cat /tmp/chroot/sysfiles/grub
 cp /tmp/chroot/sysfiles/grub /etc/default/grub
