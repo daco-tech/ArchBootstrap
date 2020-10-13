@@ -26,5 +26,6 @@ rm -rf ./grub
 cp sysfiles/grub ./grub
 echo ${device}
 sed -i 's#DISK_UUID#'"$(blkid -o value -s UUID ${device}3)"'#g' ./grub
+mkdir -p /mnt/tmp/chroot/sysfiles/
 cp ./grub /mnt/tmp/chroot/sysfiles/grub
 blkid -o value -s UUID ${device}3
