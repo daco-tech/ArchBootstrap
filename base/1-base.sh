@@ -1,9 +1,13 @@
-# Load PT Keyboard
-loadkeys pt-latin1
+# Load Variables
 
-# Update Mirrorlist with Local Portugal repos
-pacman -Syy --noconfirm reflector
-reflector -c Portugal -a 6 --sort rate --save /etc/pacman.d/mirrorlist
+
+# Load PT Keyboard
+loadkeys ${_keyboard}
+
+# Update Mirrorlist with Local Country repos
+
+
+reflector -c ${_mirrorlst_country} -a 6 --sort rate --save /etc/pacman.d/mirrorlist
 pacman -Syyy
 
 # Time

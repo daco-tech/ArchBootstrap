@@ -20,3 +20,5 @@ function yesno {
 	done
 }
 
+# Install bootstrap required packages
+pacman -Syy --noconfirm reflector dialog

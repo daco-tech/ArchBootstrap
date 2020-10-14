@@ -5,10 +5,10 @@ yesno "Possible Data Loss! Do you want to continue?"
 
 
 
-pacman -S --noconfirm dialog
+
 
 devicelist=$(lsblk -dplnx size -o name,size | grep -Ev "boot|rpmb|loop" | tac)
-device=$(dialog --stdout --menu "Select installation disk" 0 0 0 ${devicelist}) || exit 1
+device=$(dialog --stdout --menu "Select installation disk" 0 0 0 ${devicelist}) + "${partition_append}"|| exit 1
 
 printinfo "Erasing storage disks"
 sgdisk --zap-all "${device}" && sleep 2
