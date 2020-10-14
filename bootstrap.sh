@@ -23,7 +23,9 @@ mount --rbind /sys /mnt/sys/
 mount --rbind /dev /mnt/dev/
 echo ${device}
 sleep 30
-sed 's#DISK#'"${device}"'3#g' sysfiles/grub > /mnt/tmp/chroot/sysfiles/grub
+sed 's#DISKDEV#'"${device}"'3#g' sysfiles/grub > /mnt/tmp/chroot/sysfiles/grub
+cat /mnt/tmp/chroot/sysfiles/grub
+sleep 30
 chroot /mnt /usr/bin/bash /tmp/chroot/base/6.1-chroot.sh
 printinfo "\n"
 printinfo "+ --------------------- +"
