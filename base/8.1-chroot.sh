@@ -1,3 +1,5 @@
+
+source ../hosts/vbox.vars
 printinfo "\n"
 printinfo "Creating user accounts"
 echo "/usr/bin/bash" >> /etc/shells

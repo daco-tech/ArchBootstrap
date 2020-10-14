@@ -3,14 +3,15 @@ script_path="$(cd "$(dirname "${BASH_SOURCE[0]}")" >/dev/null 2>&1 && pwd)"
 pushd "$script_path" > /dev/null
 
 source ../misc.sh
+source ../hosts/vbox.vars
 
-_host=""
+_hostname=""
 _user=""
 while [[ $# -gt 0 ]]
 do
 	case "$1" in
 		-h|--host)
-			_host="$2"
+			_hostname="$2"
 			shift
 			shift
 			;;
@@ -25,7 +26,7 @@ do
 			;;
 	esac
 done
-[ -z "$_host" ] && printerr "Missing mandatory '--host' option." && exit 1
+[ -z "$_hostname" ] && printerr "Missing mandatory '--host' option." && exit 1
 [ -z "$_user" ] && printerr "Missing mandatory '--user' option." && exit 1
 
 
@@ -42,7 +43,7 @@ mkdir -p "/media/vol1/"{aur,sync/.resilio}
 mkdir -p "/media/vol1/"{code,junk}
 mkdir -p "/media/vol1/.cache/"{docker,npm,nvm,spotify}
 
-{ echo "export HOST=\"${_host}\"";
+{ echo "export HOST=\"${_hostname}\"";
   echo "export AUR=\"/media/vol1/aur\"";
   echo "export CODE=\"/media/vol1/code\"";
   echo "export JUNK=\"/media/vol1/junk\"";
