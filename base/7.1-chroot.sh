@@ -115,3 +115,7 @@ chmod -c 0440 /etc/sudoers
 sed -i -r 's/#SystemMaxUse=/SystemMaxUse=256M/' /etc/systemd/journald.conf
 sed -i -r 's/#user_allow_other/user_allow_other/' /etc/fuse.conf
 echo "vm.vfs_cache_pressure=90" >> /etc/sysctl.d/99-swappiness.conf
+
+echo "/usr/bin/bash" >> /etc/shells
+echo "/usr/bin/zsh" >> /etc/shells
+chsh -s "/usr/bin/zsh"
