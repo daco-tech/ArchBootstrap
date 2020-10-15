@@ -1,6 +1,3 @@
-
-source ../hosts/vbox.vars
-
 echo "Creating user accounts"
 
 
@@ -18,9 +15,9 @@ su -s /bin/bash -c \
 	--login USER
 
 echo "Accounts passwords"
-printwarn "Set root password!"
+echo "Set root password!"
 passwd root
-printwarn "Set USER password!"
+echo "Set USER password!"
 passwd "USER"
 
 popd > /dev/null

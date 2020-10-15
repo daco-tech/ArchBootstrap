@@ -21,19 +21,19 @@ do
 			shift
 			;;
 		*)
-			printwarn "Unknown option: '$1'. Will be ignored."
+			echo "Unknown option: '$1'. Will be ignored."
 			shift
 			;;
 	esac
 done
-[ -z "$_hostname" ] && printerr "Missing mandatory '--host' option." && exit 1
-[ -z "$_user" ] && printerr "Missing mandatory '--user' option." && exit 1
+[ -z "$_hostname" ] && echo "Missing mandatory '--host' option." && exit 1
+[ -z "$_user" ] && echo "Missing mandatory '--user' option." && exit 1
 
 
-printinfo "\n"
-printinfo "+ --------------------------------------------------- +"
-printinfo "| Creating user directories and environment variables |"
-printinfo "+ --------------------------------------------------- +"
+echo "\n"
+echo "+ --------------------------------------------------- +"
+echo "| Creating user directories and environment variables |"
+echo "+ --------------------------------------------------- +"
 mkdir "$HOME/.ssh"
 mkdir -p "$HOME/.config/fontconfig"
 mkdir -p "$HOME/.local/share/xorg"
@@ -60,16 +60,16 @@ mkdir -p "/media/vol1/.cache/"{docker,npm,nvm,spotify}
 
 . "$HOME/.env.sh"
 
-printinfo "\n"
-printinfo "+ ------------------- +"
-printinfo "| Installing dotfiles |"
-printinfo "+ ------------------- +"
+echo "\n"
+echo "+ ------------------- +"
+echo "| Installing dotfiles |"
+echo "+ ------------------- +"
 . install-dotfiles.sh --host-dir ".." --fix-permissions
 
-printinfo "\n"
-printinfo "+ ------------------------ +"
-printinfo "| Installing user software |"
-printinfo "+ ------------------------ +"
+echo "\n"
+echo "+ ------------------------ +"
+echo "| Installing user software |"
+echo "+ ------------------------ +"
 sudo usermod -aG docker ${_user}
 sudo mkdir -p /etc/docker
 echo -e "{\n\t\"data-root\": \"/media/vol1/.cache/docker\"\n}" | sudo tee /etc/docker/daemon.json
