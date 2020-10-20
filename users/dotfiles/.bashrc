@@ -1,14 +1,14 @@
 PS1="\[$(tput setaf 5)\]\A\[$(tput sgr0)\] \w$([ -n "$NNNLVL" ] && echo " nnn:$NNNLVL") \[$(tput setaf 6)\]>>\[$(tput sgr0)\] "
 
-. "$HOME/.env.sh"
-. "$HOME/.bashrc.aux"
+. "~/.env.sh"
+. "~/.bashrc.aux"
 [ ! -v NVM_BIN ] && [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
 [ -r "$NVM_DIR/bash_completion" ] && . "$NVM_DIR/bash_completion"
 
 set_vte_theme () {
 	if [ "$TERM" = "linux" ]; then
-		[ -f "$HOME/.cache/wal/colors-tty.sh" ] && \
-			. "$HOME/.cache/wal/colors-tty.sh"
+		[ -f "~/.cache/wal/colors-tty.sh" ] && \
+			. "~/.cache/wal/colors-tty.sh"
 		[ -n "$VTFONT" ] && setfont "$VTFONT"
 	fi
 }
@@ -60,7 +60,7 @@ export HISTCONTROL=ignoreboth:ereasedups
 export HISTIGNORE="?:??:???:????:?????"
 export HISTTIMEFORMAT="%F %T "
 export LESSCHARSET=UTF-8
-[[ ! "$PATH" =~ $HOME/.local/bin ]] && export PATH="$PATH:$HOME/.local/bin"
+[[ ! "$PATH" =~ ~/.local/bin ]] && export PATH="$PATH:~/.local/bin"
 
 alias aria2c="aria2c --async-dns=false"
 alias beep="tput bel"
@@ -248,8 +248,8 @@ source-nvm () {
 }
 
 theme () {
-	local light_themes_location="$HOME/.local/lib/python3.8/site-packages/pywal/colorschemes/light"
-	local dark_themes_location="$HOME/.local/lib/python3.8/site-packages/pywal/colorschemes/dark"
+	local light_themes_location="~/.local/lib/python3.8/site-packages/pywal/colorschemes/light"
+	local dark_themes_location="~/.local/lib/python3.8/site-packages/pywal/colorschemes/dark"
 	local light_themes dark_themes
 	light_themes="$(ls -1 $light_themes_location | sed "s/.json//" | awk '{print "light - " $0}')"
 	dark_themes="$(ls -1 $dark_themes_location | sed "s/.json//" | awk '{print "dark - " $0}')"
@@ -261,9 +261,9 @@ theme () {
 		name="$(echo "$selection" | grep -o '\S*$')"
 		[ "$category" == "dark" ] && wal --theme "$name"
 		[ "$category" == "light" ] && wal --theme "$name" -l
-		xrdb -merge "$HOME/.Xresources"
-		xrdb -merge "$HOME/.cache/wal/colors.Xresources"
-		. "$HOME/.local/bin/set-alacritty-colorscheme.sh" &> /dev/null
+		xrdb -merge "~/.Xresources"
+		xrdb -merge "~/.cache/wal/colors.Xresources"
+		. "~/.local/bin/set-alacritty-colorscheme.sh" &> /dev/null
 	fi
 }
 

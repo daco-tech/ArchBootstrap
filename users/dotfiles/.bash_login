@@ -1,6 +1,6 @@
 # vim:ft=sh
 
-. "$HOME/.bashrc"
+. "~/.bashrc"
 
 export agent_status=$(ps -U $USER | grep 'ssh-agent')
 
