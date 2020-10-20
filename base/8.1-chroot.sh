@@ -18,7 +18,7 @@ passwd root
 echo "Set USER password!"
 passwd "USER"
 systemctl enable gdm.service
-pacman -S gnome-shell
+pacman -S gnome-extras
 
 
 popd > /dev/null
