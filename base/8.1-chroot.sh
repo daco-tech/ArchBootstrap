@@ -1,6 +1,4 @@
 echo "Creating user accounts"
-
-
 useradd --create-home --groups users,wheel --shell "/usr/bin/zsh" "USER"
 passwd --delete root
 passwd --delete "USER"
@@ -20,5 +18,7 @@ passwd root
 echo "Set USER password!"
 passwd "USER"
 systemctl enable gdm.service
+pacman -S gnome-shell
+
 
 popd > /dev/null
