@@ -73,10 +73,10 @@ sed -i 's/hosts:.*/hosts: files mymachines myhostname mdns_minimal [NOTFOUND=ret
 cp /tmp/chroot/sysfiles/bluetooth.conf /etc/bluetooth/main.conf
 cp /tmp/chroot/sysfiles/intel-undervolt.conf /etc/
 mkdir -p /etc/iwd && cp /tmp/chroot/sysfiles/iwd.conf /etc/iwd/main.conf
-cp /tmp/chroot/sysfiles/xorg.conf /etc/X11/xorg.conf.d/
+#cp /tmp/chroot/sysfiles/xorg.conf /etc/X11/xorg.conf.d/
 
-chmod u=rw,g=r,o=r /etc/bluetooth/main.conf /etc/intel-undervolt.conf \
-	/etc/iwd/main.conf /etc/X11/xorg.conf.d/xorg.conf
+#chmod u=rw,g=r,o=r /etc/bluetooth/main.conf /etc/intel-undervolt.conf \
+#	/etc/iwd/main.conf /etc/X11/xorg.conf.d/xorg.conf
 
 cp /etc/makepkg.conf /etc/makepkg.conf.backup
 sed -i -r 's/^CFLAGS=".*"/CFLAGS="-march=native -O3 -pipe -fno-plt"/' /etc/makepkg.conf
