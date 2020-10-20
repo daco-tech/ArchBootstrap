@@ -12,16 +12,15 @@ _pkgs_tools=(archiso aria2 bash-completion bat bc bluez-utils cbatticon cpupower
              iotop libva-utils lshw lsof man
              neovim nmap nnn openbsd-netcat openssh p7zip pbzip2 pigz powertop
              progress ripgrep svt-av1 svt-hevc svt-vp9 tig time tmux tree unzip
-             usleep which)
+             usleep which nano)
 _pkgs_dev=(autoconf automake binaryen binutils bison clang cmake ctags diffutils
            docker docker-compose edk2-ovmf gcc gcc8 gcc9 gdb git go go-tools
            lldb m4 make ninja openssl-1.0 perf pkgconf python python-pip 
            spirv-llvm-translator spirv-headers spirv-tools
-           strace tokei vulkan-extra-layers vulkan-icd-loader vulkan-mesa-layers
-           vulkan-tools vulkan-validation-layers wabt zig)
-_pkgs_apps=(alacritty arandr feh firefox libreoffice-still maim meld mesa-demos
-            mpv nomacs obs-studio pavucontrol pcmanfm-gtk3 rofi redshift
-            slock sxiv veracrypt wireshark-qt)
+           strace tokei wabt zig)
+_pkgs_apps=(alacritty arandr feh firefox maim meld mesa-demos
+            mpv nomacs pavucontrol pcmanfm-gtk3 rofi redshift
+            slock sxiv veracrypt ) # wireshark-qt libreoffice-still obs-studio
 
 pacstrap -i /mnt ${_pkgs_base[*]} ${_pkgs_drivers[*]} ${_pkgs_sys[*]} \
 	${_pkgs_tools[*]} ${_pkgs_dev[*]}  ${_pkgs_x11[*]} ${_pkgs_fonts[*]} \

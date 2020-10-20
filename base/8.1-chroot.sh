@@ -17,8 +17,6 @@ echo "Set root password!"
 passwd root
 echo "Set USER password!"
 passwd "USER"
-systemctl enable gdm.service
-
 
 
 popd > /dev/null
