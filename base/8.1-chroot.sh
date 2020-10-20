@@ -5,13 +5,6 @@ passwd --delete "USER"
 
 chown "USER:USER" "/home/USER"
 
-echo "Configuring user accounts"
-
-chown "USER:USER" "/tmp/chroot/users/USER/bootstrap.sh"
-su -s /bin/bash -c \
-	"cd /tmp/chroot/ && . \"/tmp/chroot/users/USER/bootstrap.sh\" --host HOST --user USER" \
-	--login USER
-
 echo "Accounts passwords"
 echo "Set root password!"
 passwd root

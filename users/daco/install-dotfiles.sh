@@ -41,25 +41,7 @@ if [ ! -f "${_vimplug_dir}/plug.vim" ]; then
 	curl "$_vimplug_url" -sS -H "Accept:application/vnd.github.v3.raw" -o "${_vimplug_dir}/plug.vim"
 fi
 
-mkdir -p \
-	"${HOME}/.local/bin" \
-	"${HOME}/.local/share/dunst" \
-	"${HOME}/.local/share/polybar" \
-	"${HOME}/.local/share/picom" \
-	"${HOME}/.gnupg/" \
-	"${XDG_CONFIG_HOME}/alacritty" \
-	"${XDG_CONFIG_HOME}/bspwm" \
-	"${XDG_CONFIG_HOME}/ctags" \
-	"${XDG_CONFIG_HOME}/dunst" \
-	"${XDG_CONFIG_HOME}/fontconfig" \
-	"${XDG_CONFIG_HOME}/git" \
-	"${XDG_CONFIG_HOME}/gtk-3.0" \
-	"${XDG_CONFIG_HOME}/nnn/plugins" \
-	"${XDG_CONFIG_HOME}/nvim/nerdtree_plugin" \
-	"${XDG_CONFIG_HOME}/polybar" \
-	"${XDG_CONFIG_HOME}/pulse" \
-	"${XDG_CONFIG_HOME}/rslsync" \
-	"${XDG_CONFIG_HOME}/sxhkd"
+
 
 if [ "$_fix_permissions" = "true" ]; then
 	sudo chown -R kalstong:kalstong dotfiles
@@ -103,17 +85,7 @@ if [ "$_fix_permissions" = "true" ]; then
 	sudo chmod -R u=rw,g=r,o=r nnn polybar tmux
 	sudo chmod u=rwx,g=r,o=r nnn polybar tmux
 fi
-cp nnn/* "${XDG_CONFIG_HOME}/nnn/plugins/"
-chmod u+x "${XDG_CONFIG_HOME}/nnn/plugins/"*
-cp polybar/fsusage.sh "${HOME}/.local/bin/polybar-fsusage.sh"
-cp polybar/iotop.sh "${HOME}/.local/bin/polybar-iotop.sh"
-cp polybar/mem.sh "${HOME}/.local/bin/polybar-mem.sh"
-cp polybar/mic.sh "${HOME}/.local/bin/polybar-mic.sh"
-cp polybar/thermal.sh "${HOME}/.local/bin/polybar-thermal.sh"
-gcc polybar/polytimer.c -Wall -Wextra -O3 -march=native -o "${HOME}/.local/bin/polytimer"
-cp tmux/gitstat.sh "${HOME}/.local/bin/tmux-gitstat.sh"
-chmod u+x "${HOME}/.local/bin/tmux-gitstat.sh"
-cd "${_scriptdir}"
+
 
 if [ "$_fix_permissions" = "true" ]; then
 	sudo chown -R kalstong:kalstong "${_host_dir}"/dotfiles

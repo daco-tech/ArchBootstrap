@@ -30,18 +30,7 @@ done
 [ -z "$_user" ] && echo "Missing mandatory '--user' option." && exit 1
 
 
-echo "\n"
-echo "+ --------------------------------------------------- +"
-echo "| Creating user directories and environment variables |"
-echo "+ --------------------------------------------------- +"
-mkdir "$HOME/.ssh"
-mkdir -p "$HOME/.config/fontconfig"
-mkdir -p "$HOME/.local/share/xorg"
-mkdir -p "$HOME/.local/share/fonts"
-mkdir -p "$HOME/mount"
-mkdir -p "/media/vol1/"{aur,sync/.resilio}
-mkdir -p "/media/vol1/"{code,junk}
-mkdir -p "/media/vol1/.cache/"{docker,npm,nvm,spotify}
+
 
 { echo "export HOST=\"${_hostname}\"";
   echo "export AUR=\"/media/vol1/aur\"";
