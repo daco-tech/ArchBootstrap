@@ -19,10 +19,6 @@ _pkgs_dev=(autoconf automake binaryen binutils bison clang cmake ctags diffutils
            spirv-llvm-translator spirv-headers spirv-tools
            strace tokei vulkan-extra-layers vulkan-icd-loader vulkan-mesa-layers
            vulkan-tools vulkan-validation-layers wabt zig)
-_pkgs_x11=(bspwm dunst picom sxhkd xorg-server xorg-xinit xorg-xinput xorg-xprop
-           xorg-xrandr xorg-xset xorg-xsetroot xsel)
-_pkgs_fonts=(noto-fonts noto-fonts-emoji terminus-font ttf-font-awesome
-             ttf-jetbrains-mono)
 _pkgs_apps=(alacritty arandr feh firefox libreoffice-still maim meld mesa-demos
             mpv nomacs obs-studio pavucontrol pcmanfm-gtk3 rofi redshift
             slock sxiv veracrypt wireshark-qt)
