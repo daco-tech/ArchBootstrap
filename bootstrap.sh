@@ -36,7 +36,7 @@ source "base/8-ui_us.sh"
 #source "base/9-userspace.sh"
 sed -i 's#USER#'"${_user}"'#g' /mnt/tmp/chroot/base/9.1-chroot.sh
 sed -i 's#HOST#'"${_hostname}"'#g' /mnt/tmp/chroot/base/9.1-chroot.sh
-chroot /mnt /usr/bin/bash /tmp/chroot/base/8.1-chroot.sh
+chroot /mnt /usr/bin/bash /tmp/chroot/base/9.1-chroot.sh
 
 
 
