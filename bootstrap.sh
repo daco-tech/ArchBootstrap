@@ -28,10 +28,14 @@ chroot /mnt /usr/bin/bash /tmp/chroot/base/6.1-chroot.sh
 source "base/7-sysprep.sh"
 chroot /mnt /usr/bin/bash /tmp/chroot/base/7.1-chroot.sh
 
+# UI and UX Settings
+
+source "base/8-ui_us.sh"
+
 # Users Setup and Personalization
-source "base/8-userspace.sh"
-sed -i 's#USER#'"${_user}"'#g' /mnt/tmp/chroot/base/8.1-chroot.sh
-sed -i 's#HOST#'"${_hostname}"'#g' /mnt/tmp/chroot/base/8.1-chroot.sh
+#source "base/9-userspace.sh"
+sed -i 's#USER#'"${_user}"'#g' /mnt/tmp/chroot/base/9.1-chroot.sh
+sed -i 's#HOST#'"${_hostname}"'#g' /mnt/tmp/chroot/base/9.1-chroot.sh
 chroot /mnt /usr/bin/bash /tmp/chroot/base/8.1-chroot.sh
 
 

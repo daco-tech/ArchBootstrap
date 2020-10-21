@@ -1,7 +1,6 @@
 printinfo "Users Setup and Personalization"
 
-# Prepare User Template /etc/skel
-echo "Creating user directories and environment variables"
+
 mkdir "/mnt/etc/skel/.ssh"
 mkdir -p "/mnt/etc/skel/.config/fontconfig"
 mkdir -p "/mnt/etc/skel/.local/share/xorg"
@@ -42,7 +41,6 @@ cp users/dotfiles/gpg.conf "/mnt/etc/skel/.gnupg/"
 cp users/dotfiles/set-alacritty-colorscheme.sh "/mnt/etc/skel/.local/bin/"
 cp users/dotfiles/ssh.conf "/mnt/etc/skel/.ssh/config"
 cp users/dotfiles/.ctags "/mnt/etc/skel/.config/ctags/default.ctags"
-cp users/dotfiles/bspwmrc "/mnt/etc/skel/.config/bspwm/"
 chmod u=rwx "/mnt/etc/skel/.config/bspwm/bspwmrc"
 cp users/dotfiles/coc-settings.json "/mnt/etc/skel/.config/nvim/"
 cp users/dotfiles/fonts.conf "/mnt/etc/skel/.config/fontconfig/"
@@ -52,8 +50,7 @@ cp users/dotfiles/init.vim "/mnt/etc/skel/.config/nvim/"
 cp users/dotfiles/mimeapps.list "/mnt/etc/skel/.config/"
 cp users/dotfiles/openInNewTab.vim "/mnt/etc/skel/.config/nvim/nerdtree_plugin"
 cp users/dotfiles/picom.conf "/mnt/etc/skel/.config/"
-cp users/dotfiles/polybar.sh "/mnt/etc/skel/.config/polybar/start.sh"
-chmod u=rwx "/mnt/etc/skel/.config/polybar/start.sh"
+
 cp users/dotfiles/redshift.conf "/mnt/etc/skel/.config/"
 cp users/dotfiles/sxhkdrc "/mnt/etc/skel/.config/sxhkd/"
 cp users/dotfiles/terminate-session.sh "/mnt/etc/skel/.config/polybar/"
